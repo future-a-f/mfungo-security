@@ -1,0 +1,358 @@
+/* Performance Optimizations */
+
+/* CSS Custom Properties for Easy Theming */
+:root {
+  /* Performance-optimized transitions */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* Optimized transform values */
+  --transform-lift: translateY(-4px);
+  --transform-scale: scale(1.05);
+  --transform-rotate: rotate(2deg);
+  
+  /* Performance colors */
+  --gpu-accelerated: transform3d(0, 0, 0);
+  --will-change-transform: will-change: transform;
+  --will-change-opacity: will-change: opacity;
+}
+
+/* GPU Accelerated Animations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Optimized Transitions */
+.transition-optimized {
+  transition: transform var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1),
+              opacity var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-transform-optimized {
+  transition: transform var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-opacity-optimized {
+  transition: opacity var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efficient Animation Timing */
+@keyframes fadeInOptimized {
+  0% {
+    opacity: 0;
+    transform: translateZ(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+@keyframes slideUpOptimized {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes scaleInOptimized {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.8, 0.8, 1) translateZ(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1) translateZ(0);
+  }
+}
+
+/* Performance Classes */
+.fade-in-optimized {
+  animation: fadeInOptimized 0.3s ease-out forwards;
+}
+
+.slide-up-optimized {
+  animation: slideUpOptimized 0.4s ease-out forwards;
+}
+
+.scale-in-optimized {
+  animation: scaleInOptimized 0.3s ease-out forwards;
+}
+
+/* Optimized Hover States */
+.hover-optimized {
+  transition: transform var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateZ(0);
+}
+
+.hover-optimized:hover {
+  transform: var(--transform-lift) translateZ(0);
+}
+
+/* Contain for Performance */
+.contain-layout {
+  contain: layout style paint;
+}
+
+.contain-paint {
+  contain: paint;
+}
+
+.contain-size {
+  contain: size;
+}
+
+.contain-style {
+  contain: style;
+}
+
+/* Optimized Images */
+.img-optimized {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  transform: translateZ(0);
+}
+
+.img-responsive {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  font-family: 'object-fit: cover;';
+}
+
+/* Optimized Background Images */
+.bg-optimized {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  will-change: background-position;
+  transform: translateZ(0);
+}
+
+/* Performance Hints */
+.performance-hint {
+  contain: strict;
+  content-visibility: auto;
+}
+
+/* Optimized Scrolling */
+.scroll-smooth {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding-top: 80px;
+}
+
+.scroll-optimized {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  transform: translateZ(0);
+  will-change: scroll-position;
+}
+
+/* Efficient Grid Layouts */
+.grid-optimized {
+  display: grid;
+  gap: var(--spacing-md);
+  contain: layout;
+}
+
+.grid-performance {
+  grid-auto-flow: row dense;
+  contain: layout style paint;
+}
+
+/* Optimized Flexbox */
+.flex-optimized {
+  display: flex;
+  contain: layout;
+}
+
+.flex-performance {
+  contain: layout style paint;
+}
+
+/* Reduced Complexity for Low-End Devices */
+@media (max-width: 768px) and (max-height: 1024px) {
+  .performance-reduced {
+    transition: none;
+    animation: none;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .performance-reduced * {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Memory Management */
+.cleanup-memory {
+  contain: strict;
+  will-change: auto;
+}
+
+/* Critical CSS Inlining */
+.critical-above-fold {
+  contain: layout style paint;
+}
+
+.non-critical {
+  content-visibility: auto;
+}
+
+/* Optimized Transforms */
+.transform-optimized {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Performance Monitoring */
+.performance-monitor {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 12px;
+  z-index: 9999;
+  font-family: monospace;
+}
+
+/* Optimized Filters */
+.filter-optimized {
+  filter: opacity(0.9);
+  transform: translateZ(0);
+  will-change: filter, opacity;
+}
+
+/* Efficient Blend Modes */
+.blend-mode-optimized {
+  mix-blend-mode: multiply;
+  isolation: isolate;
+}
+
+/* Performance Utilities */
+.no-animation {
+  animation: none !important;
+  transition: none !important;
+}
+
+.no-transition {
+  transition: none !important;
+}
+
+.hardware-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimized Keyframes for 60fps */
+@keyframes optimizedPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1) translateZ(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale3d(1.05, 1.05, 1) translateZ(0);
+  }
+}
+
+/* Efficient Color Transitions */
+.color-transition-optimized {
+  transition: color var(--transition-fast) linear,
+              background-color var(--transition-fast) linear,
+              border-color var(--transition-fast) linear;
+}
+
+/* Optimized Shadow Transitions */
+.shadow-transition-optimized {
+  transition: box-shadow var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Performance Debug Classes */
+.debug-performance .gpu-accelerated {
+  outline: 2px solid lime;
+}
+
+.debug-performance .will-change {
+  outline: 2px solid orange;
+}
+
+.debug-performance .contain-layout {
+  outline: 2px solid blue;
+}
+
+/* Optimized Media Queries */
+@media (prefers-reduced-motion: reduce) {
+  .performance-optimized {
+    transition: none;
+    animation: none;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-data: reduce) {
+  .img-optimized {
+    background-image: none !important;
+  }
+}
+
+/* Efficient CSS Counters */
+.counter-optimized {
+  counter-reset: section;
+}
+
+.counter-optimized h2::before {
+  counter-increment: section;
+  content: counter(section) ". ";
+  font-weight: bold;
+}
+
+/* Optimized Custom Properties */
+.theme-variables {
+  --primary-hue: 210;
+  --primary-saturation: 90%;
+  --primary-lightness: 50%;
+  --primary-color: hsl(var(--primary-hue), var(--primary-saturation), var(--primary-lightness));
+}
+
+/* Performance Budget Classes */
+.budget-low {
+  contain: strict;
+  content-visibility: auto;
+}
+
+.budget-medium {
+  contain: layout style;
+}
+
+.budget-high {
+  contain: layout;
+}
